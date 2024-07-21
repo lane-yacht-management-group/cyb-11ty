@@ -72,11 +72,11 @@
     <h2>Charter this boat</h2>
 
     <form method="post" name="charterboat" netlify>
-      <label>Name: <input type="text" required /></label>
-      <label>Phone: <input type="text" required /></label>
+      <label>Name: <input name="name" type="text" required /></label>
+      <label>Phone: <input type="text" name="phone" required /></label>
       <input type="hidden" name="boat" value="{{ boat.name }}" />
-      <label>Number of Guests: <input type="text" size="5"/></label>
-      <label>Departure, Stops, Destinations, etc:<br /><textarea cols="50" rows="6"></textarea></label>
+      <label>Number of Guests: <input class="form-control--inline" name="number_of_guests" type="text" size="5"/></label>
+      <label>Departure, Stops, Destinations, etc:<br /><textarea name="stops_departure_destinations" cols="50" rows="6"></textarea></label>
       <label>
       <input type="submit" /> 
     </form>

@@ -114,22 +114,26 @@ footer a {
 Form
 **/
 
-form[netlify] label,
-form[netlify] input[type="text"],
-form[netlify] textarea,
-form[netlify] select {
+form label,
+form input[type="text"]:not(.form-control--inline),
+form textarea:not(.form-control--inline),
+form select:not(.form-control--inline) {
   display: block;
   max-width: 100%;
 }
 
-form[netlify] input[type="submit"],
-form[netlify] input[type="reset"] {
+form label {
+  margin-bottom: 1em;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
   padding: 0.5em;
   margin: 1em 0;
   border: none;
   font-size: 1em;
 }
-form[netlify] input[type="submit"] {
+form input[type="submit"] {
   background: var(--dark-blue);
   box-shadow: 1px 1px 1px white;
   color: white;
