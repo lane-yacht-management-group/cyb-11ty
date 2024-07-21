@@ -1,4 +1,5 @@
 ---
+title: boat.name
 pagination:
   data: boats
   size: 1
