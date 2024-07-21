@@ -1,5 +1,5 @@
 ---
-title: Cape Cod Burials at Sea
+title: Charter Yacht Brochures Home
 layout: base.njk
 ---
 
