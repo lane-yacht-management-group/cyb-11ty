@@ -1,0 +1,189 @@
+:root {
+  --dark-blue: #003399;
+  --light-blue: #6699ff;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: var(--light-blue);
+  font-family: "Trebuchet MS", arial, sans-serif;
+}
+
+header {
+  background: var(--dark-blue);
+  color: white;
+  margin-bottom: 2em;
+}
+
+@media (min-width: 800px) {
+  .header--inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.header--inner {
+  margin: auto;
+  max-width: 800px;
+}
+
+.header--inner p {
+  display: flex;
+  font-size: 0.75em;
+  margin: 0;
+  align-self: flex-end;
+}
+
+.header--inner p:first-of-type {
+  grid-column: span 2;
+}
+
+.layout,
+.site-content__single-column {
+  max-width: 900px;
+  margin: auto;
+}
+
+.site-content,
+.site-content__single-column {
+  padding: 0 0.5em;
+}
+
+@media (min-width: 800px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 3em;
+  }
+}
+
+nav {
+  text-align: center;
+  color: white;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav li a {
+  background: var(--dark-blue);
+  box-shadow: 1px 1px 1px white;
+  color: white;
+  display: block;
+  margin: 0.25em 0;
+  padding: 0.5em;
+  text-decoration: none;
+  text-align: right;
+}
+
+.accolades img {
+  padding-bottom: 1em;
+}
+
+.accolades p {
+  font-size: small;
+  margin: 0 0 1em;
+}
+
+footer {
+  background: var(--dark-blue);
+  color: white;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+}
+
+/**
+Form
+**/
+
+form[netlify] label,
+form[netlify] input[type="text"],
+form[netlify] textarea,
+form[netlify] select {
+  display: block;
+  max-width: 100%;
+}
+
+form[netlify] input[type="submit"],
+form[netlify] input[type="reset"] {
+  padding: 0.5em;
+  margin: 1em 0;
+  border: none;
+  font-size: 1em;
+}
+form[netlify] input[type="submit"] {
+  background: var(--dark-blue);
+  box-shadow: 1px 1px 1px white;
+  color: white;
+}
+
+.boats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 0.5em;
+}
+
+.boats-grid--boat {
+  list-style-type: none;
+}
+
+.boats-grid--boat img {
+  object-fit: cover;
+}
+
+.boat-videos {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column;
+}
+
+@media (min-width: 800px) {
+  .boat-videos {
+    flex-direction: row;
+  }
+}
+
+.charter-this-boat {
+  background: white;
+  border-radius: 6px;
+  margin: 3em 0;
+  padding: 1em;
+  width: 480px;
+}
+
+.charter-this-boat h2 {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+/**
+utility
+**/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

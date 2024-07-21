@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {{ title }} | Every event is better on the water - Cape Coc Charter Yacht
+      Brochures
+    </title>
+    <meta name="robots" content="max-image-preview:large" />
+    <link rel="stylesheet" href="{{ '/css/styles.css' | url }}" />
+  </head>
+
+  <body class="home page-template-default page page-id-22 logged-in">
+    <header>
+      <div class="header--inner">
+        <h1 class="sr-only">Charter Yacht Brochure</h1>
+        <p>
+          For booking information and availability, please contact your favorite
+          charter broker.
+        </p>
+        <a
+          href="{{ '/' | url }}"
+          rel="home"
+          class="site-header-inner--logo-link"
+        >
+          <img
+            class="site-logo"
+            src="{{ '/img/cyblogo.png' | url }}"
+            alt="Charter Yacht Brochures"
+          />
+        </a>
+        <p>
+          Check out the on-line brochures for yachts and boats available for
+          charter
+        </p>
+      </div>
+    </header>
+
+    
+    <div id="content" class="site-content site-content__single-column">
+      <a href="{{ '/brochure' | url }}">Back to all boats</a>
+      <main id="main" class="site-main" role="main">        
+
+        <h1>{{ boat.name }}</h1>
+        <slide-show width=500 images="{{ boat.images | smoosh_images }}"></slide-show>
+        {% if boat.video1 or boat.video2 %}   
+          <a href="#vids">Watch Videos</a>
+        {% endif %}
+        {% for attribute in boat.attributes %}
+          <h2>{{ attribute.category }}</h2>
+          <ul>
+            {% for item in attribute.attributes %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+
+        {% if boat.video1 or boat.video2 %}        
+          <div class="boat-videos" id="vids">
+            {% if boat.video1 %}
+              <lite-youtube videoid="{{ boat.video1 | parse_video_id }}"></lite-youtube>
+            {% endif %}
+
+            {% if boat.video2 %}
+              <lite-youtube videoid="{{ boat.video2 | parse_video_id }}"></lite-youtube>
+            {% endif %}
+          </div>         
+        {% endif %}
+
+  <div class="charter-this-boat">
+    <h2>Charter this boat</h2>
+
+    <form method="post" name="charterboat" netlify>
+      <label>Name: <input type="text" required /></label>
+      <label>Phone: <input type="text" required /></label>
+      <input type="hidden" name="boat" value="{{ boat.name }}" />
+      <label>Number of Guests: <input type="text" size="5"/></label>
+      <label>Departure, Stops, Destinations, etc:<br /><textarea cols="50" rows="6"></textarea></label>
+      <label>
+      <input type="submit" /> 
+    </form>
+  </div>
+
+      </main>
+      <!-- #main -->
+    </div>
+
+    <!-- layout-->
+
+    <footer id="colophon" class="site-footer container" role="contentinfo">
+      <div>All Rights Reserved to CharterYachtBrochure.com - 2024</div>
+      <div class="site-info row">
+        <a href="http://11ty.dev/">Proudly powered by 11ty</a>
+      </div>
+      <!-- .site-info -->
+    </footer>
+    <!-- #colophon -->
+
+    <!-- #page -->
+
+    <script src="{{ '/js/scripts.js' | url }}"></script>
+  </body>
+</html>

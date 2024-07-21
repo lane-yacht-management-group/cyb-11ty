@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {{ title }} | Every event is better on the water - Cape Coc Charter Yacht
+      Brochures
+    </title>
+    <meta name="robots" content="max-image-preview:large" />
+    <link rel="stylesheet" href="{{ '/css/styles.css' | url }}" />
+  </head>
+
+  <body class="home page-template-default page page-id-22 logged-in">
+    <header>
+      <div class="header--inner">
+        <h1 class="sr-only">Charter Yacht Brochure</h1>
+        <p>
+          For booking information and availability, please contact your favorite
+          charter broker.
+        </p>
+        <a
+          href="{{ '/brochure' | url }}"
+          rel="home"
+          class="site-header-inner--logo-link"
+        >
+          <img
+            class="site-logo"
+            src="{{ '/img/cyblogo.png' | url }}"
+            alt="Charter Yacht Brochures"
+          />
+        </a>
+        <p>
+          Check out the on-line brochures for yachts and boats available for
+          charter
+        </p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <nav id="site-navigation" class="main-navigation" role="navigation">
+        <div class="menu-menu-1-container">
+          <ul id="primary-menu" class="nav nav-tabs">
+            <li>
+              <a href="{{ '/' | url }}">About us</a>
+            </li>
+            <li>
+              <a href="{{ '/contact/' | url }}">Contact</a>
+            </li>
+            <li>
+              <a href="{{ '/requestbrochure/' | url }}">Request charter</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="accolades">
+          <img src="{{ '/img/flagbanner.png' | url }}" />
+          <img src="{{ '/img/CC-Chamber-Commerce.png' | url }}" />
+          <img src="{{ '/img/USCoast-Guard-3.png' | url }}" />
+          <p>Licensed Captain</p>
+          <p>Established 1985</p>
+        </div>
+      </nav>
+      <!-- #site-navigation -->
+
+      <div id="content" class="site-content container">
+        <main id="main" class="site-main" role="main">
+          {{ content | safe }}
+            <ul class="boats-grid">
+                {% for boat in boats %}
+                <li class="boats-grid--boat">
+                  <a href="/brochure/{{  boat.codename | slugify | url }}">
+                    <img src="/pictures/{{ boat.portrait | url }}" alt="" width=200 height=133/>
+                    <h2>{{ boat.name }}</h2>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+        </main>
+        <!-- #main -->
+      </div>
+    </div>
+
+    <!-- layout-->
+
+    <footer id="colophon" class="site-footer container" role="contentinfo">
+      <div>All Rights Reserved to CharterYachtBrochure.com - 2024</div>
+      <div class="site-info row">
+        <a href="http://11ty.dev/">Proudly powered by 11ty</a>
+      </div>
+      <!-- .site-info -->
+    </footer>
+    <!-- #colophon -->
+
+    <!-- #page -->
+
+    <script src="{{ '/js/scripts.js' | url }}"></script>
+  </body>
+</html>
